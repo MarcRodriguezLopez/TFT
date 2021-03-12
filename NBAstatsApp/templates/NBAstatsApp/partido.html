@@ -1,0 +1,136 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"><\/script>')</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-3">
+                    <button type="button" class="btn btn-secondary" onclick="goBefore()">&lt</button>
+                </div>
+                <div class="col-6 texto"><p id="MatchDisplay">Entero</p></div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-secondary" onclick="goNext()">&gt</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row texto">
+        <div class="col-5">{{awayTeam}}</div>
+        <div class="col-2">{{date}}</div>
+        <div class="col-5">{{homeTeam}}</div>
+    </div>
+
+    <div id='fila'></div>
+
+    <script>
+    var labels = ['Points', 'FTM', 'FTA', 'FGM','FGA', '3PM', 'Assists', 'Turnovers', 'Steals', 'Blocks', 'Rebounds'];
+    var data = {{ data }}
+    showMatch(labels, data);
+
+    function showMatch(labels, data) {
+        var a = ""
+        for(i=0;i<labels.length;i++){
+            a += "<div class='row'>"+
+            "<div class='col-5 themed-grid-col-left'>"+
+            "<div id='firstLeftBar"+i+"' class='bar-left'>a</div>"+
+            "</div>"+
+            "<div class='col-2 themed-grid-col-center center"+i+"'>"+
+            "<div class='row'>"+
+            "<div id='firstLeft"+i+"' class='col-3' style='text-align: left;'>0</div>"+
+            "<div class='col-6' style='text-align: center;'>"+labels[i]+"</div>"+
+            "<div id='firstRight"+i+"' class='col-3' style='text-align: right;'>0</div>"+
+            "</div>"+
+            "</div>"+
+            "<div class='col-5 themed-grid-col-right'>"+
+            "<div id='firstRightBar"+i+"' class='bar-right'>a</div>"+
+            "</div>"+
+            "</div>";
+        }
+        document.getElementById("fila").innerHTML = a;
+        for(i=0;i<labels.length;i++){
+            var max = Math.max(...data);
+            document.getElementById('firstLeftBar'+i).style.width= (data[2*i]/max)*97+'%';
+            document.getElementById('firstLeft'+i).innerHTML = data[2*i];
+            document.getElementById('firstRightBar'+i).style.width= (data[2*i+1]/max)*97 +'%';
+            document.getElementById('firstRight'+i).innerHTML = data[2*i+1];
+        }
+    }
+
+    function goNext() {
+        text = document.getElementById('MatchDisplay').innerHTML;
+        switch (text) {
+            case 'Entero':
+                document.getElementById('MatchDisplay').innerHTML = 'Primera parte';
+                showMatch(labels, {{ data1hlf }});
+                break;
+            case 'Primera parte':
+                document.getElementById('MatchDisplay').innerHTML = 'Segunda parte';
+                showMatch(labels, {{ data2hlf }});
+                break;
+            case 'Segunda parte':
+                document.getElementById('MatchDisplay').innerHTML = 'Primer cuarto';
+                showMatch(labels, {{ data1qtr }});
+                break;
+            case 'Primer cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Segundo cuarto';
+                showMatch(labels, {{ data2qtr }});
+                break;
+            case 'Segundo cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Tercer cuarto';
+                showMatch(labels, {{ data3qtr }});
+                break;
+            case 'Tercer cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Ultimo cuarto';
+                showMatch(labels, {{ data4qtr }});
+                break;
+            case 'Ultimo cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Entero';
+                showMatch(labels, {{ data }});
+        }
+    }
+
+    function goBefore() {
+        text = document.getElementById('MatchDisplay').innerHTML;
+        switch (text) {
+            case 'Entero':
+                document.getElementById('MatchDisplay').innerHTML = 'Ultimo cuarto';
+                showMatch(labels, {{ data4qtr }});
+                break;
+            case 'Ultimo cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Tercer cuarto';
+                showMatch(labels, {{ data3qtr }});
+                break;
+            case 'Tercer cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Segundo cuarto';
+                showMatch(labels, {{ data2qtr }});
+                break;
+            case 'Segundo cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Primer cuarto';
+                showMatch(labels, {{ data1qtr }});
+                break;
+            case 'Primer cuarto':
+                document.getElementById('MatchDisplay').innerHTML = 'Segunda parte';
+                showMatch(labels, {{ data2hlf }});
+                break;
+            case 'Segunda parte':
+                document.getElementById('MatchDisplay').innerHTML = 'Primera parte';
+                showMatch(labels, {{ data1hlf }});
+                break;
+            case 'Primera parte':
+                document.getElementById('MatchDisplay').innerHTML = 'Entero';
+                showMatch(labels, {{ data }});
+        }
+    }
+    </script>
+
+{% endblock %}

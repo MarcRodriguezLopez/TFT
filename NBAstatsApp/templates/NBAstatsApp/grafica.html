@@ -1,0 +1,286 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"><\/script>')</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <div class="row">
+      <div class="col-3">
+        <form action = "" method = "POST">
+          {% csrf_token %}
+          <div class="formSection">
+            <label>Equipos</label>
+          </div>
+          <div class="formSection team">
+            <label class="containerCheckbox">PHX
+              <input type="checkbox" name="teams" value=0 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">SAS
+              <input type="checkbox" name="teams" value=1 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">PHI
+              <input type="checkbox" name="teams" value=2 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">NOP
+              <input type="checkbox" name="teams" value=3 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">GSW
+              <input type="checkbox" name="teams" value=4 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">CHI
+              <input type="checkbox" name="teams" value=5 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">UTA
+              <input type="checkbox" name="teams" value=6 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">ORL
+              <input type="checkbox" name="teams" value=7 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">OKC
+              <input type="checkbox" name="teams" value=8 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">DEN
+              <input type="checkbox" name="teams" value=9 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">MEM
+              <input type="checkbox" name="teams" value=10 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">BKN
+              <input type="checkbox" name="teams" value=11 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">BOS
+              <input type="checkbox" name="teams" value=12 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">CLE
+              <input type="checkbox" name="teams" value=13 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">DET
+              <input type="checkbox" name="teams" value=14 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">MIN
+              <input type="checkbox" name="teams" value=15 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">HOU
+              <input type="checkbox" name="teams" value=16 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">TOR
+              <input type="checkbox" name="teams" value=17 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">MIA
+              <input type="checkbox" name="teams" value=18 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">LAL
+              <input type="checkbox" name="teams" value=19 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">LAC
+              <input type="checkbox" name="teams" value=20 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">NYK
+              <input type="checkbox" name="teams" value=21 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">POR
+              <input type="checkbox" name="teams" value=22 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">CHA
+              <input type="checkbox" name="teams" value=23 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">MIL
+              <input type="checkbox" name="teams" value=24 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">WAS
+              <input type="checkbox" name="teams" value=25 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">IND
+              <input type="checkbox" name="teams" value=26 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">DAL
+              <input type="checkbox" name="teams" value=27 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">SAC
+              <input type="checkbox" name="teams" value=28 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">ATL
+              <input type="checkbox" name="teams" value=29 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="formSection">
+            <label>Estadística</label>
+          </div>
+          <div class="formSection target">
+            <label class="containerCheckbox">Puntos
+              <input type="radio" name="target" value=0 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">TLA
+              <input type="radio" name="target" value=1 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">TLI
+              <input type="radio" name="target" value=2 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">TCA
+              <input type="radio" name="target" value=3 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">TCI
+              <input type="radio" name="target" value=4 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">3PA
+              <input type="radio" name="target" value=5 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">Asistencias
+              <input type="radio" name="target" value=6 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">Pérdidas
+              <input type="radio" name="target" value=7 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">Robos
+              <input type="radio" name="target" value=8 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">Tapones
+              <input type="radio" name="target" value=9 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">Rebotes
+              <input type="radio" name="target" value=10 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="formSection">
+            <label>Temporada</label>
+          </div>
+          <div class="formSection target">
+            <label class="containerCheckbox">2005 - 2006
+              <input type="radio" name="season" value=2006 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">2006 - 2007
+              <input type="radio" name="season" value=2007 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">2007 - 2008
+              <input type="radio" name="season" value=2008 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">2008 - 2009
+              <input type="radio" name="season" value=2009 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+            <label class="containerCheckbox">2009 - 2010
+              <input type="radio" name="season" value=2010 autocomplete="off">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <div class="formSection">
+            <input class="btn btn-primary" type="submit" value="Generar Tabla">
+          </div>
+        </form>
+      </div>
+
+      <div class="col-9">
+        <div> {{target|safe }} en la temporada {{season|safe }}</div>
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var data = {{ data }}
+        var teams = {{ teams|safe }}
+        var colors = {{ colors|safe }}
+        var dataSets = []
+        for (i = 0; i < data.length; i++) {
+            dataSets.push(
+                {
+                    label: teams[i],
+                    backgroundColor: 'transparent',
+                    borderColor: colors[i],
+                    data: data[i],
+                    spanGaps: true
+                }
+            );
+        }
+        console.log(dataSets);
+        var chart = new Chart(ctx, {
+            // line, bar, radar
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ['Octubre', 'Noviembre', 'Diciembre', 'Enero', 'Febrero', 'Marzo', 'Abril'],
+                datasets: dataSets
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+
+        /*new Chart(document.getElementById("myChart2"), {
+            type: 'bar',
+            data: {
+                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                datasets: [
+                    {
+                    label: "Population (millions)",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [2478,5267,734,784,433]
+                    }, {
+                    label: "Population (millions)",
+                    backgroundColor: "blue",
+                    data: [2436,5267,734,784,433]
+                    }
+                ]
+            },
+            options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Predicted world population (millions) in 2050'
+            }
+            }
+        });*/
+    </script>
+{% endblock %}

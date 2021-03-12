@@ -1,0 +1,22 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="blog">
+        {% for post in object_list %}
+            <div class="blog-item">
+                <span><img src="{% static 'NBAstatsApp/img/' %}{{ post.image|safe }}" /></span>
+                <div class="text">
+                    <div>{{ post.date }}</div>
+                    <div>Creado por {{ post.author}}</div>
+                    <h3>{{post.title}}</h3>
+                    <div>{{ post.receipt}}</div>
+                </div>
+                <div class="button"><a href="/blog/{{ post.id }}" class="btn btn-secondary">Leer más</a></div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

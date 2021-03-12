@@ -1,0 +1,138 @@
+Action,Id,Type
+Lost Ball Out of Bounds,1,Turnover
+Stepped out of Bounds,2,Turnover
+Offensive Goaltending,3,Turnover
+Kicked Ball Violation,4,Turnover
+Lost Ball Possession,5,Turnover
+24 Second Violation,6,Turnover
+Discontinue Dribble,7,Turnover
+Jump Ball Violation,8,Turnover
+Isolation Violation,9,Turnover
+3 Second Violation,10,Turnover
+Backcourt Turnover,11,Turnover
+8 Second Violation,12,Turnover
+5 Second Violation,13,Turnover
+Inbound Turnover,14,Turnover
+Double Personal,15,Turnover
+Double Dribble,16,Turnover
+Lane Violation,17,Turnover
+Illegal Assist,18,Turnover
+Stolen Pass,19,Turnover
+Lost Ball,20,Turnover
+Traveling,21,Turnover
+Bad Pass,22,Turnover
+Palming,23,Turnover
+(4 TO),24,Turnover
+(1 TO),25,Turnover
+Driving Finger Roll Layup Shot,1,Shot
+Running Finger Roll Layup Shot,2,Shot
+Turnaround Finger Roll Shot,3,Shot
+Driving Reverse Layup Shot,4,Shot
+Running Reverse Layup Shot,5,Shot
+Turnaround Fade Away shot,6,Shot
+Turnaround Bank Hook Shot,7,Shot
+Putback Reverse Dunk Shot,8,Shot
+Driving Finger Roll Shot,9,Shot
+Turnaround Finger Roll,10,Shot
+Finger Roll Layup Shot,11,Shot
+Running Slam Dunk Shot,12,Shot
+Putback Slam Dunk Shot,13,Shot
+Driving Slam Dunk Shot,14,Shot
+Driving Bank Hook Shot,15,Shot
+Reverse Slam Dunk Shot,16,Shot
+Running Bank Hook Shot,17,Shot
+Fade Away Jumper Shot,18,Shot
+Turnaround Hook Shot,19,Shot
+Turnaround Jump Shot,20,Shot
+Alley Oop Layup shot,21,Shot
+Turnaround Bank shot,22,Shot
+Driving Finger Roll,23,Shot
+Running Finger Roll,24,Shot
+Alley Oop Dunk Shot,25,Shot
+Follow Up Dunk Shot,26,Shot
+Running Finger Shot,27,Shot
+Fade Away Bank shot,28,Shot
+Step Back Jump shot,29,Shot
+Jump Bank Hook Shot,30,Shot
+Driving Layup Shot,31,Shot
+Running Layup Shot,32,Shot
+Reverse Layup Shot,33,Shot
+Floating Jump shot,34,Shot
+Putback Layup Shot,35,Shot
+Running Hook Shot,36,Shot
+Driving Hook Shot,37,Shot
+Running Jump Shot,38,Shot
+Driving Dunk Shot,39,Shot
+Reverse Dunk Shot,40,Shot
+Running Dunk Shot,41,Shot
+Driving Jump shot,42,Shot
+Running Bank shot,43,Shot
+Putback Dunk Shot,44,Shot
+Driving Bank shot,45,Shot
+Finger Roll Shot,46,Shot
+Running Tip Shot,47,Shot
+Pullup Jump shot,48,Shot
+Pullup Bank shot,49,Shot
+Turnaround Jump,50,Shot
+Alley Oop Layup,51,Shot
+Slam Dunk Shot,52,Shot
+Alley Oop Dunk,53,Shot
+Follow Up Dunk,54,Shot
+Running Tip-In,55,Shot
+Jump Hook Shot,56,Shot
+Jump Bank Shot,57,Shot
+Hook Bank Shot,58,Shot
+Driving Layup,59,Shot
+Reverse Layup,60,Shot
+Running Layup,61,Shot
+Running Jump,62,Shot
+Driving Dunk,63,Shot
+Reverse Dunk,64,Shot
+Running Dunk,65,Shot
+Finger Roll,66,Shot
+Free Throw,67,Shot
+Layup Shot,68,Shot
+Jump Shot,69,Shot
+Jump Hook,70,Shot
+Fade Away,71,Shot
+Dunk Shot,72,Shot
+Hook Shot,73,Shot
+Jump Bank,74,Shot
+Hook Bank,75,Shot
+Tip Shot,76,Shot
+3pt Shot,77,Shot
+Tip-In,78,Shot
+Layup,79,Shot
+Dunk,80,Shot
+Non Supported Technical,1,Foul
+Taunting Technical,2,Foul
+Hanging Technical,3,Foul
+Double Technical,4,Foul
+Illegal Defense,5,Foul
+Flagrant Type 1,6,Foul
+Delay Technical,7,Foul
+Double Personal,8,Foul
+Flagrant Type 2,9,Foul
+Away from Play,10,Foul
+Loose Ball,11,Foul
+Clear Path,12,Foul
+Offensive,13,Foul
+Technical,14,Foul
+Shooting,15,Foul
+Personal,16,Foul
+Inbound,17,Foul
+Violation: Defensive Goaltending,1,Rest
+Ejection: Second Flagrant Type 1,2,Rest
+Instant Replay: Overturn Ruling,3,Rest
+Ejection: First Flagrant Type 2,4,Rest
+Instant Replay: Support Ruling,5,Rest
+Ejection: Second Technical,6,Rest
+Violation: Delay of Game,7,Rest
+Violation: Kicked Ball,8,Rest
+Violation: Jump Ball,9,Rest
+Timeout: No Timeout,10,Rest
+Timeout: Official,11,Rest
+Timeout: Regular,12,Rest
+Violation: Lane,13,Rest
+Ejection: Other,14,Rest
+Timeout: Short,15,Rest

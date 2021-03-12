@@ -1,0 +1,724 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+
+<div class="historico">
+    <div id="pointDiv" class="tableHistorico">
+        <table id="pointTable" class="hide">
+            <tr id="pointTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="pointTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Puntos</th>
+                <th>Posición</th>
+                <th>Puntos</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Points %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Points %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Points %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Points %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Points %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="pointTableAux" class="active">
+            <tr>
+                <th colspan="5">Puntos</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('pointTableAux').addEventListener('click', function() {
+            document.getElementById('pointTable').classList.remove("hide");
+            document.getElementById('pointTableAux').classList.add("hide");
+        });
+        document.getElementById('pointTableBtn').addEventListener('click', function() {
+            document.getElementById('pointTable').classList.add("hide");
+            document.getElementById('pointTableAux').classList.remove("hide");
+        });
+        document.getElementById('pointTableBtn2').addEventListener('click', function() {
+            document.getElementById('pointTable').classList.add("hide");
+            document.getElementById('pointTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="ftmTable" class="hide">
+            <tr id="ftmTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="ftmTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>TLA</th>
+                <th>Posición</th>
+                <th>TLA</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006FTM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007FTM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008FTM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009FTM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010FTM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="ftmTableAux" class="active">
+            <tr>
+                <th colspan="5">Tiros Libres Anotados</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('ftmTableAux').addEventListener('click', function() {
+            document.getElementById('ftmTable').classList.remove("hide");
+            document.getElementById('ftmTableAux').classList.add("hide");
+        });
+        document.getElementById('ftmTableBtn').addEventListener('click', function() {
+            document.getElementById('ftmTable').classList.add("hide");
+            document.getElementById('ftmTableAux').classList.remove("hide");
+        });
+        document.getElementById('ftmTableBtn2').addEventListener('click', function() {
+            document.getElementById('ftmTable').classList.add("hide");
+            document.getElementById('ftmTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="ftaTable" class="hide">
+            <tr id="ftaTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="ftaTableBtn">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>TLI</th>
+                <th>Posición</th>
+                <th>TLI</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006FTA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007FTA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008FTA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009FTA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010FTA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="ftaTableAux" class="active">
+            <tr>
+                <th colspan="5">Tiros Libres Intentados</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('ftaTableAux').addEventListener('click', function() {
+            document.getElementById('ftaTable').classList.remove("hide");
+            document.getElementById('ftaTableAux').classList.add("hide");
+        });
+        document.getElementById('ftaTableBtn').addEventListener('click', function() {
+            document.getElementById('ftaTable').classList.add("hide");
+            document.getElementById('ftaTableAux').classList.remove("hide");
+        });
+        document.getElementById('ftaTableBtn2').addEventListener('click', function() {
+            document.getElementById('ftaTable').classList.add("hide");
+            document.getElementById('ftaTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="fgmTable" class="hide">
+            <tr id="fgmTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="fgmTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>TCA</th>
+                <th>Posición</th>
+                <th>TCA</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006FGM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007FGM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008FGM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009FGM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010FGM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="fgmTableAux" class="active">
+            <tr>
+                <th colspan="5">Tiros de Campo Anotados</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('fgmTableAux').addEventListener('click', function() {
+            document.getElementById('fgmTable').classList.remove("hide");
+            document.getElementById('fgmTableAux').classList.add("hide");
+        });
+        document.getElementById('fgmTableBtn').addEventListener('click', function() {
+            document.getElementById('fgmTable').classList.add("hide");
+            document.getElementById('fgmTableAux').classList.remove("hide");
+        });
+        document.getElementById('fgmTableBtn2').addEventListener('click', function() {
+            document.getElementById('fgmTable').classList.add("hide");
+            document.getElementById('fgmTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="fgaTable" class="hide">
+            <tr id="fgaTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="fgaTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>TCI</th>
+                <th>Posición</th>
+                <th>TCI</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006FGA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007FGA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008FGA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009FGA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010FGA %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="fgaTableAux" class="active">
+            <tr>
+                <th colspan="5">Tiros de Campo Intentados</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('fgaTableAux').addEventListener('click', function() {
+            document.getElementById('fgaTable').classList.remove("hide");
+            document.getElementById('fgaTableAux').classList.add("hide");
+        });
+        document.getElementById('fgaTableBtn').addEventListener('click', function() {
+            document.getElementById('fgaTable').classList.add("hide");
+            document.getElementById('fgaTableAux').classList.remove("hide");
+        });
+        document.getElementById('fgaTableBtn2').addEventListener('click', function() {
+            document.getElementById('fgaTable').classList.add("hide");
+            document.getElementById('fgaTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="3pmTable" class="hide">
+            <tr id="3pmTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="3pmTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>3PA</th>
+                <th>Posición</th>
+                <th>3PA</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 20063PM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 20073PM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 20083PM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 20093PM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 20103PM %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="3pmTableAux" class="active">
+            <tr>
+                <th colspan="5">Triples Anotados</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('3pmTableAux').addEventListener('click', function() {
+            document.getElementById('3pmTable').classList.remove("hide");
+            document.getElementById('3pmTableAux').classList.add("hide");
+        });
+        document.getElementById('3pmTableBtn').addEventListener('click', function() {
+            document.getElementById('3pmTable').classList.add("hide");
+            document.getElementById('3pmTableAux').classList.remove("hide");
+        });
+        document.getElementById('3pmTableBtn2').addEventListener('click', function() {
+            document.getElementById('3pmTable').classList.add("hide");
+            document.getElementById('3pmTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="assistsTable" class="hide">
+            <tr id="assistsTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="assistsTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Asistencias</th>
+                <th>Posición</th>
+                <th>Asistencias</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Assists %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Assists %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Assists %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Assists %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Assists %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="assistsTableAux" class="active">
+            <tr>
+                <th colspan="5">Asistencias</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('assistsTableAux').addEventListener('click', function() {
+            document.getElementById('assistsTable').classList.remove("hide");
+            document.getElementById('assistsTableAux').classList.add("hide");
+        });
+        document.getElementById('assistsTableBtn').addEventListener('click', function() {
+            document.getElementById('assistsTable').classList.add("hide");
+            document.getElementById('assistsTableAux').classList.remove("hide");
+        });
+        document.getElementById('assistsTableBtn2').addEventListener('click', function() {
+            document.getElementById('assistsTable').classList.add("hide");
+            document.getElementById('assistsTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="turnoversTable" class="hide">
+            <tr id="turnoversTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="turnoversTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Pérdidas</th>
+                <th>Posición</th>
+                <th>Pérdidas</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Turnovers %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Turnovers %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Turnovers %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Turnovers %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Turnovers %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="turnoversTableAux" class="active">
+            <tr>
+                <th colspan="5">Pérdidas</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('turnoversTableAux').addEventListener('click', function() {
+            document.getElementById('turnoversTable').classList.remove("hide");
+            document.getElementById('turnoversTableAux').classList.add("hide");
+        });
+        document.getElementById('turnoversTableBtn').addEventListener('click', function() {
+            document.getElementById('turnoversTable').classList.add("hide");
+            document.getElementById('turnoversTableAux').classList.remove("hide");
+        });
+        document.getElementById('turnoversTableBtn2').addEventListener('click', function() {
+            document.getElementById('turnoversTable').classList.add("hide");
+            document.getElementById('turnoversTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="stealsTable" class="hide">
+            <tr id="stealsTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="stealsTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Robos</th>
+                <th>Posición</th>
+                <th>Robos</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Steals %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Steals %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Steals %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Steals %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Steals %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="stealsTableAux" class="active">
+            <tr>
+                <th colspan="5">Robos</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('stealsTableAux').addEventListener('click', function() {
+            document.getElementById('stealsTable').classList.remove("hide");
+            document.getElementById('stealsTableAux').classList.add("hide");
+        });
+        document.getElementById('stealsTableBtn').addEventListener('click', function() {
+            document.getElementById('stealsTable').classList.add("hide");
+            document.getElementById('stealsTableAux').classList.remove("hide");
+        });
+        document.getElementById('stealsTableBtn2').addEventListener('click', function() {
+            document.getElementById('stealsTable').classList.add("hide");
+            document.getElementById('stealsTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="blocksTable" class="hide">
+            <tr id="blocksTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="blocksTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Tapones</th>
+                <th>Posición</th>
+                <th>Tapones</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Blocks %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Blocks %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Blocks %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Blocks %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Blocks %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="blocksTableAux" class="active">
+            <tr>
+                <th colspan="5">Tapones</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('blocksTableAux').addEventListener('click', function() {
+            document.getElementById('blocksTable').classList.remove("hide");
+            document.getElementById('blocksTableAux').classList.add("hide");
+        });
+        document.getElementById('blocksTableBtn').addEventListener('click', function() {
+            document.getElementById('blocksTable').classList.add("hide");
+            document.getElementById('blocksTableAux').classList.remove("hide");
+        });
+        document.getElementById('blocksTableBtn2').addEventListener('click', function() {
+            document.getElementById('blocksTable').classList.add("hide");
+            document.getElementById('blocksTableAux').classList.remove("hide");
+        });
+    </script>
+    <div class="tableHistorico">
+        <table id="reboundsTable" class="hide">
+            <tr id="reboundsTableBtn">
+                <th></th>
+                <th colspan="2">Media</th>
+                <th colspan="2">Absoluto</th>
+            </tr>
+            <tr id="reboundsTableBtn2">
+                <th>Temporada</th>
+                <th>Posición</th>
+                <th>Rebotes</th>
+                <th>Posición</th>
+                <th>Rebotes</th>
+            </tr>
+            <tr>
+                <td>2005 - 2006</td>
+                {% for point in 2006Rebounds %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2006 - 2007</td>
+                {% for point in 2007Rebounds %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2007 - 2008</td>
+                {% for point in 2008Rebounds %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2008 - 2009</td>
+                {% for point in 2009Rebounds %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>2009 - 2010</td>
+                {% for point in 2010Rebounds %}
+                    <td>{{ point }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+        <table id="reboundsTableAux" class="active">
+            <tr>
+                <th colspan="5">Rebotes</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('reboundsTableAux').addEventListener('click', function() {
+            document.getElementById('reboundsTable').classList.remove("hide");
+            document.getElementById('reboundsTableAux').classList.add("hide");
+        });
+        document.getElementById('reboundsTableBtn').addEventListener('click', function() {
+            document.getElementById('reboundsTable').classList.add("hide");
+            document.getElementById('reboundsTableAux').classList.remove("hide");
+        });
+        document.getElementById('reboundsTableBtn2').addEventListener('click', function() {
+            document.getElementById('reboundsTable').classList.add("hide");
+            document.getElementById('reboundsTableAux').classList.remove("hide");
+        });
+    </script>
+</div>
+
+
+{% endblock %}

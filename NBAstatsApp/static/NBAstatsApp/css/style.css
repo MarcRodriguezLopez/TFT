@@ -1,0 +1,472 @@
+.contenido {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-top: 90px;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+body {
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+#subnav-content {
+  display: none;
+}
+
+.dropdown-submenu{
+  position: relative;
+}
+
+.dropdown-submenu a::after{
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 3px;
+  top: 40%;
+}
+
+.dropdown-submenu:hover .dropdown-menu, .dropdown-submenu:focus .dropdown-menu{
+  display: flex;
+  flex-direction: column;
+  position: absolute !important;
+  margin-top: -30px;
+  left: 100%;
+}
+
+@media (max-width: 992px) {
+  .dropdown-menu{
+  width: 50%;
+  }
+}
+
+.dropdown-menu .dropdown-submenu{
+width: auto;
+}
+
+.texto {
+    text-align: center;
+    font-size: 18px;
+}
+
+.bar-left {
+  width: 0%;
+  float:right;
+  background-color: rgb(167, 0, 0);
+  color: transparent;
+  text-align: center;
+  border-radius: 10px 0px 0px 10px;
+  height: 30px;
+  box-shadow: -7px 7px 30px -10px rgba(0,0,0,0.75);
+}
+
+.themed-grid-col-left {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 0%;
+}
+
+.bar-right {
+  width: 0%;
+  background-color: darkblue;
+  color: transparent;
+  text-align: center;
+  border-radius: 0px 10px 10px 0px;
+  height: 30px;
+  box-shadow: 7px 7px 30px -10px rgba(0,0,0,0.75);
+}
+
+.themed-grid-col-right {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0%;
+}
+
+.themed-grid-col-center {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(86, 61, 124, .15);
+  text-align: justify;
+  position: relative;
+}
+
+.themed-container {
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+}
+
+.center0 {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.center10 {
+  border-radius: 0px 0px 10px 10px;
+}
+
+
+/* CALENDARIO */
+
+.days {list-style-type: none;}
+
+.days li.weekday {
+    height: auto;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(151, 151, 151);
+    border-radius: 0%;
+}
+
+.days {
+    padding: 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    height: 100px;
+    list-style-type: none;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+    border-radius: 5px;
+}
+
+.days li .day {
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.days li .noday {
+    color: transparent !important;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.days li .score span {
+    font-size: 35px;
+    color: transparent;
+}
+
+.days li.win {
+    background-color: rgba(158, 255, 154, 0.308);
+}
+
+.days li .winScore {
+    color: rgb(5, 161, 0);
+}
+
+.days li .winScore span {
+    font-size: 35px;
+    padding-right: 10px;
+}
+
+.days li.lose {
+    background-color: rgba(255, 154, 154, 0.514);
+}
+
+.days li .loseScore {
+    color: rgb(161, 0, 0);
+}
+
+.days li .loseScore span {
+    font-size: 35px;
+    padding-right: 10px;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+/* AÑO */
+
+/* Establecemos el ancho y la altura como deseemos, elimina la perspectiva si no deseas el efecto 3D */
+.year-flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px; /* Borra esta línea si no quieres el efecto 3D */
+}
+/* Este contenedor es necesario para colocar el anverso y el reverso */
+.year-flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+/* Hace un giro horizontal cuando muevas el ratón sobre el contenedor de la caja */
+.year-flip-card:hover .year-flip-card-inner {
+    transform: rotateX(180deg);
+}
+/* Coloca el anverso y el reverso */
+.year-flip-card-front, .year-flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+/* Estilos de la parte trasera (alternativa por si falta la imagen) */
+.year-flip-card-front {
+    background-color: #17408B;
+    color: white;
+    border-radius: 5%;
+}
+.year-flip-card-front div {
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de la parte trasera */
+.year-flip-card-back {
+    background-color: #C9082A;
+    color: white;
+    border-radius: 5%;
+    transform: rotateX(180deg);
+}
+
+.month {
+    display: inline-block;
+}
+
+.data {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+}
+
+/* EQUIPO */
+
+/* Establecemos el ancho y la altura como deseemos, elimina la perspectiva si no deseas el efecto 3D */
+.team-flip-card {
+background-color: transparent;
+width: 100%;
+height: 100px;
+border: 1px solid #f1f1f1;
+perspective: 1000px; /* Borra esta línea si no quieres el efecto 3D */
+}
+/* Este contenedor es necesario para colocar el anverso y el reverso */
+.team-flip-card-inner {
+position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
+}
+/* Hace un giro horizontal cuando muevas el ratón sobre el contenedor de la caja */
+.team-flip-card:hover .team-flip-card-inner {
+transform: rotateX(90deg);
+}
+/* Coloca el anverso y el reverso */
+.team-flip-card-front, .team-flip-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden; /* Safari */
+backface-visibility: hidden;
+}
+/* Estilos de la parte trasera (alternativa por si falta la imagen) */
+.team-flip-card-front {
+background-color: #17408B;
+color: white;
+transform: translateZ(50px);
+}
+/* Estilos de la parte trasera */
+.team-flip-card-back {
+background-color: #C9082A;
+color: white;
+transform: rotateX(-90deg) translateZ(50px);
+}
+
+.historico {
+
+}
+
+.tableHistorico {
+    display: inline-block;
+    border-collapse: collapse;
+    min-width: 455px;
+}
+.tableHistorico table {
+    width: 100%;
+}
+.tableHistorico td, .tableHistorico th {
+    padding: 8px;
+    text-align: center;
+}
+
+.tableHistorico tr:nth-child(even){background-color: #b8c8e4;}
+
+.tableHistorico tr:hover {background-color: #C9082A; color: white;}
+
+.tableHistorico th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #17408B;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+/* The container */
+.containerCheckbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.team .containerCheckbox {
+  width: 80px;
+}
+
+.target .containerCheckbox {
+  width: 150px;
+}
+
+/* Hide the browser's default checkbox */
+.containerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.containerCheckbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containerCheckbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.containerCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.containerCheckbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.formSection {
+  display: block;
+}
+
+/* BLOG */
+
+.blog {
+
+}
+
+.blog-item {
+  width: 400px;
+  height: 700px;
+  margin: 0 30px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.blog-item span {
+  display: block;
+  height: 300px;
+}
+
+.blog-item .text {
+    height: 350px;
+}
+
+.blog-item img {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+.blog-item div {
+  text-align: justify;
+  text-justify: inter-word;
+  padding-bottom: 15px;
+}
+.blog-item .button {
+  height: 50px;
+}
+.blog-item a {
+  float: right;
+  max-height: 100%;
+}
+
+.blog-big {
+    max-width: 800px;
+    margin: auto;
+    text-align: justify;
+}
+
+.blog-big img {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 800px;
+    width: 80%;
+}

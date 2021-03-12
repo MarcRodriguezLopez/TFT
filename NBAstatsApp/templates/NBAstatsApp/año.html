@@ -1,0 +1,91 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+
+<!--    <a href="/mes/">-->
+<!--        <div class="flip-card">-->
+<!--            <div class="flip-card-inner">-->
+<!--                <div class="flip-card-front">-->
+<!--                    <h1>Título del efecto</h1>-->
+<!--                    <p>Subtítulo</p>-->
+<!--                    <p>Texto del contenido para el efecto</p>-->
+<!--                </div>-->
+<!--                <div class="flip-card-back">-->
+<!--                    <h1>Título del efecto</h1>-->
+<!--                    <p>Subtítulo</p>-->
+<!--                    <p>Texto del contenido para el efecto</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+
+<div id="Octubre" class="month"></div>
+<div id="Noviembre" class="month"></div>
+<div id="Diciembre" class="month"></div>
+<div id="Enero" class="month"></div>
+<div id="Febrero" class="month"></div>
+<div id="Marzo" class="month"></div>
+<div id="Abril" class="month"></div>
+
+
+<script>
+    function absolute(mes, num, year, data, wins) {
+    console.log(wins)
+        res = '<a href="/mes/team={{team}}&month=' + num + '&year=' + year + '/">'
+        res += '<div class="year-flip-card">'
+        res += '<div class="year-flip-card-inner">'
+        res += '<div class="year-flip-card-front">'
+        res += '<div>' + mes + '<br>Victorias: ' + wins[0] + '<br>Derrotas: ' + wins[1] + '</div>'
+        res += '</div>'
+        res += '<div class="year-flip-card-back">'
+        res += fill(data)
+        res += '</div>'
+        res += '</div>'
+        res += '</div>'
+        res += '</a>'
+
+        document.getElementById(mes).innerHTML=res;
+    }
+
+    months = ['Enero', 'febrero', 'marzo', 'abril', 'octubre', 'noviembre', 'diciembre']
+
+    function fill(data) {
+        res = '<div class="data">Points: ' + data[0] + '</div>'
+        res += '<div class="data">FTM: ' + data[1] + '</div>'
+        res += '<div class="data">FTA: ' + data[2] + '</div>'
+        res += '<div class="data">FGM: ' + data[3] + '</div>'
+        res += '<div class="data">FGA: ' + data[4] + '</div>'
+        res += '<div class="data">3PM: ' + data[5] + '</div>'
+        res += '<div class="data">Assists: ' + data[6] + '</div>'
+        res += '<div class="data">Turnovers: ' + data[7] + '</div>'
+        res += '<div class="data">Steals: ' + data[8] + '</div>'
+        res += '<div class="data">Blocks: ' + data[9] + '</div>'
+        res += '<div class="data">Rebounds: ' + data[10] + '</div>'
+        return res
+    }
+
+    function fillAbsolute() {
+        absolute('Enero', 1, {{year2}}, {{enero_abs}}, {{enero_matches}})
+        absolute('Febrero', 2, {{year2}}, {{febrero_abs}}, {{febrero_matches}})
+        absolute('Marzo', 3, {{year2}}, {{marzo_abs}}, {{marzo_matches}})
+        absolute('Abril', 4, {{year2}}, {{abril_abs}}, {{abril_matches}})
+        absolute('Octubre', 10, {{year1}}, {{octubre_abs}}, {{octubre_matches}})
+        absolute('Noviembre', 11, {{year1}}, {{noviembre_abs}}, {{noviembre_matches}})
+        absolute('Diciembre', 12, {{year1}}, {{diciembre_abs}}, {{diciembre_matches}})
+    }
+
+    function fillAverage() {
+        absolute('Enero', 1, {{year2}}, {{enero_media}}, {{enero_matches}})
+        absolute('Febrero', 2, {{year2}}, {{febrero_media}}, {{febrero_matches}})
+        absolute('Marzo', 3, {{year2}}, {{marzo_media}}, {{marzo_matches}})
+        absolute('Abril', 4, {{year2}}, {{abril_media}}, {{abril_matches}})
+        absolute('Octubre', 10, {{year1}}, {{octubre_media}}, {{octubre_matches}})
+        absolute('Noviembre', 11, {{year1}}, {{noviembre_media}}, {{noviembre_matches}})
+        absolute('Diciembre', 12, {{year1}}, {{diciembre_media}}, {{diciembre_matches}})
+    }
+
+    fillAbsolute()
+
+</script>
+
+{% endblock %}

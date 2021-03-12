@@ -1,0 +1,82 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+
+<!--    <a href="/mes/">-->
+<!--        <div class="flip-card">-->
+<!--            <div class="flip-card-inner">-->
+<!--                <div class="flip-card-front">-->
+<!--                    <h1>Título del efecto</h1>-->
+<!--                    <p>Subtítulo</p>-->
+<!--                    <p>Texto del contenido para el efecto</p>-->
+<!--                </div>-->
+<!--                <div class="flip-card-back">-->
+<!--                    <h1>Título del efecto</h1>-->
+<!--                    <p>Subtítulo</p>-->
+<!--                    <p>Texto del contenido para el efecto</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
+
+<div id="Temporada 2005-2006"></div>
+<div id="Temporada 2006-2007"></div>
+<div id="Temporada 2007-2008"></div>
+<div id="Temporada 2008-2009"></div>
+<div id="Temporada 2009-2010"></div>
+
+
+<script>
+    function absolute(season, year1, year2, data) {
+        res = '<a href="/año/team={{team}}&year=' + year1 + '&' + year2 + '/">'
+        res += '<div class="team-flip-card">'
+        res += '<div class="team-flip-card-inner">'
+        res += '<div class="team-flip-card-front">'
+        res += '<p>' + season + '</p>'
+        res += '</div>'
+        res += '<div class="team-flip-card-back">'
+        res += fill(data)
+        res += '</div>'
+        res += '</div>'
+        res += '</div>'
+        res += '</a>'
+
+        document.getElementById(season).innerHTML=res;
+    }
+
+    function fill(data) {
+        res = '<div class="data">Points: ' + data[0] + '</div>'
+        res += '<div class="data">FTM: ' + data[1] + '</div>'
+        res += '<div class="data">FTA: ' + data[2] + '</div>'
+        res += '<div class="data">FGM: ' + data[3] + '</div>'
+        res += '<div class="data">FGA: ' + data[4] + '</div>'
+        res += '<div class="data">3PM: ' + data[5] + '</div>'
+        res += '<div class="data">Assists: ' + data[6] + '</div>'
+        res += '<div class="data">Turnovers: ' + data[7] + '</div>'
+        res += '<div class="data">Steals: ' + data[8] + '</div>'
+        res += '<div class="data">Blocks: ' + data[9] + '</div>'
+        res += '<div class="data">Rebounds: ' + data[10] + '</div>'
+        return res
+    }
+
+    function fillAbsolute() {
+        absolute('Temporada 2005-2006', 2005, 2006, {{0506_abs}})
+        absolute('Temporada 2006-2007', 2006, 2007, {{0607_abs}})
+        absolute('Temporada 2007-2008', 2007, 2008, {{0708_abs}})
+        absolute('Temporada 2008-2009', 2008, 2009, {{0809_abs}})
+        absolute('Temporada 2009-2010', 2009, 2010, {{0910_abs}})
+    }
+
+    function fillAverage() {
+        absolute('Temporada 2005-2006', 2005, 2006, {{0506_media}})
+        absolute('Temporada 2006-2007', 2006, 2007, {{0607_media}})
+        absolute('Temporada 2007-2008', 2007, 2008, {{0708_media}})
+        absolute('Temporada 2008-2009', 2008, 2009, {{0809_media}})
+        absolute('Temporada 2009-2010', 2009, 2006, {{0910_media}})
+    }
+
+    fillAbsolute()
+
+</script>
+
+{% endblock %}

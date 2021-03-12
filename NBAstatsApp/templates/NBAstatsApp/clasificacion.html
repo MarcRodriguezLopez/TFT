@@ -1,0 +1,51 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+
+    <div class="row">
+        <button class="btn btn-secondary col-3" onclick="fill({{ dataFavorAvg|safe }})">Media a favor</button>
+        <button class="btn btn-secondary col-3" onclick="fill({{ dataContraAvg|safe }})">Media en contra</button>
+        <button class="btn btn-secondary col-3" onclick="fill({{ dataFavorAbs|safe }})">Absoluto a favor</button>
+        <button class="btn btn-secondary col-3" onclick="fill({{ dataContraAbs|safe }})">Absoluto en contra</button>
+    </div>
+    <div class="row">
+        <div id="standings" class="col-12"></div>
+    </div>
+
+    <script>
+        var cabecera = ['Equipo', 'Ganados', 'Perdidos', 'Points', 'FTM', 'FTA', 'FGM', 'FGA', '3PM', 'Assists', 'Turnovers', 'Steals', 'Blocks', 'Rebounds'];
+        var data = {{ dataFavorAvg|safe }}
+        function fill(data) {
+            table = '<table id="myTable" class="table table-striped table-bordered js-sort-table">' +
+                '<thead>' +
+                '<tr>'
+            for (i=0;i<cabecera.length;i++){
+                if (i >= 1) {
+                    table += '<th class="js-sort-number">'+cabecera[i]+'</th>'
+                } else {
+                    table += '<th>'+cabecera[i]+'</th>'
+                }
+            }
+            table += '</tr>'+
+                '</thead>'+
+                '<tbody>'
+            for (i=0;i<30;i++){
+                table += '<tr>'
+                console.log(data[i])
+                for (j=0;j<data[i].length;j++){
+                    table += '<td>'+data[i][j]+'</td>'
+                }
+                table += '</tr>'
+            }
+            table += '</tbody>'
+                '</table>'
+
+            document.getElementById("standings").innerHTML = table;
+        }
+
+        fill(data)
+
+    </script>
+
+
+{% endblock %}

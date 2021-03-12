@@ -1,0 +1,51 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% block content %}
+{% load static %}
+      
+    <ul id="dias" class="days"></ul>
+
+    <script>
+        labelDays = ['Lu', 'Ma', 'Mié', 'Ju', 'Vie', 'Sa', 'Do']
+        matchDay = {{ days }}
+        winMatch = {{ wins }}
+        resultsMatch = {{ results|safe }}
+        firstDay = (new Date({{year}} + "-" + {{month}} + "-01").getDay())-1;
+        if ({{month}} == 1 || {{month}} == 3 || {{month}} == 10 || {{month}} == 12) {
+            days = 31;
+        } else if ({{month}} == 2 || {{month}} == 2008) {
+            days = 29
+        } else if ({{month}} == 2) {
+            days = 28
+        } else {
+            days = 30
+        }
+        weeks = Math.round((firstDay+days)/7)
+        res = ""
+        for (i = 0; i < 7; i++){
+            res += '<li class="weekday">' + labelDays[i] + '</li>'
+        }
+        d = 1
+        match = 0
+        for (i = 1; i <(weeks*7)+1; i++) {
+            if (matchDay[match] == d && i>firstDay){
+                if (winMatch[match] == 1 ) {
+                    res += '<li class="win"><a href="/partido/full&team={{team}}&day=' + d + '&month={{month}}&year={{year}}"><p class="day">' + d + '</p><p class="winScore"><span>V</span>' + resultsMatch[match] + '</p></a></li>'
+                } else {
+                    res += '<li class="lose"><a href="/partido/full&team={{team}}&day=' + d + '&month={{month}}&year={{year}}"><p class="day">' + d + '</p><p class="loseScore"><span>D</span>' + resultsMatch[match] + '</p></a></li>'
+                }
+                match++
+            } else if (i < firstDay+1 || i > (firstDay+days)) {
+                res += '<li><p class="noday">' + d + '</p><p class="score"><span>a</span></p></li>'
+            } else {
+                res += '<li><p class="day">' + d + '</p><p class="score"><span>a</span></p></li>'
+            }
+            if (i==firstDay || i==(firstDay+days)){
+                d=0
+            }
+            d++
+        }
+        x = document.getElementById("dias")
+        x.innerHTML = res;
+    </script>
+
+{% endblock %}

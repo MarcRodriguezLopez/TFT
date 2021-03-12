@@ -1,0 +1,16 @@
+{% extends "NBAstatsApp/navbar.html" %}
+{% load static %}
+{% block content %}
+
+    <div>
+            <div class="blog-big">
+                <img src="{% static 'NBAstatsApp/img/' %}{{ imagen }}" />
+                <div>{{ fecha }}</div>
+                <div>Creado por {{ autor }}</div>
+                <h1>{{ titulo }}</h1>
+                <div>{{ contenido|safe }}</div>
+            </div>
+    </div>
+
+
+{% endblock %}
